@@ -65,8 +65,7 @@ try:
             if self.verbose:
                 print("['" + name + "' at " + str(iteration) + "] = " + str(value))
             self.logs[name] = value
-            self.logs["iteration"] = iteration
-            wandb.log(self.logs, commit=True)
+            wandb.log(self.logs, step=iteration)
             self.logs = {}
 
         def add_video(self, name, value, iteration, fps=10) -> None:
